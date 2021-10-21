@@ -1,0 +1,136 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{svp}
+
+
+\RequirePackage{ucs}
+\RequirePackage{ngerman}
+\RequirePackage{amsmath,amssymb,amstext}
+\RequirePackage[onehalfspacing]{setspace}
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\RequirePackage{geometry}
+\RequirePackage{sectsty}
+
+\newcommand{\svppart}{A}
+\newcommand{\svpsem}{Wintersemester}
+\newcommand{\svpyear}{\the\year{}}
+
+\DeclareOption{A}{\renewcommand{\svppart}{A}}
+\DeclareOption{B}{\renewcommand{\svppart}{B}}
+\DeclareOption{ws}{\renewcommand{\svpsem}{Wintersemester}}
+\DeclareOption{wise}{\renewcommand{\svpsem}{Wintersemester}}
+\DeclareOption{sose}{\renewcommand{\svpsem}{Sommersemester}}
+\ProcessOptions\relax
+
+\geometry{a4paper, top=25mm, left=30mm, right=30mm, bottom=30mm,	headsep=10mm, footskip=12mm}
+
+
+
+
+
+
+\parindent 0pt %Einzug erster Zeile im Absatz
+\sectionfont{\LARGE\sffamily\color{blau}}  % sets colour of sections
+\subsectionfont{\sffamily\color{blau}} 
+\subsubsectionfont{\sffamily\color{hellblau}} 
+\definecolor{blau}{RGB}{0,51,204}
+\definecolor{hellblau}{RGB}{71,115,255}
+
+\setcounter{secnumdepth}{1} 
+
+\newcommand{\svpgroup}[1]{\def\@svpgroup{#1}}
+\newcommand{\svpnum}[1]{\def\@svpnum{#1}}
+\newcommand{\svpname}[1]{\def\@svpname{#1}}
+
+\newcommand{\versuch}{\@startsection{section}{1}{0pt}{-3.25ex plus -1ex minus -0.2ex}{1.5ex plus 0.2ex}{\sffamily\color{blau}\LARGE\bfseries}}
+
+
+\makeatletter
+\newcommand{\svptitle}
+{
+
+    \begin{center}
+    {\small
+        [\@date] $\quad$ Grobplanung zu [\@svpnum] $\quad$ Gruppe [\@svpgroup] 
+    }
+    {
+        \color{blau}\rule{1\textwidth}{0.3 mm}}\\
+        \end{center}\textbf{\textsf{\textit{\color{blau}\Large Grobplanung zu}}} \\
+        \begin{center}\textsf{\textbf{\color{blau}\Huge 
+        %\@title
+        [\@svpnum -- \@svpname]
+    }}\\
+
+    {\color{blau}\rule{1\textwidth}{0.3 mm}}\\
+    %\@author
+    Gruppe [\@svpgroup]:\@author 
+
+    \end{center}
+    \hfill
+    
+    \tableofcontents
+    \hfill
+
+    \textbf{Praktikum f"ur Schulversuche (Physik)}\\
+    Teil \svppart\\
+    \svpsem\:\svpyear
+    
+    \pagebreak
+
+
+}
+\makeatother
+
+\makeatletter
+\newcommand{\svpgrob}
+{
+
+    \begin{center}
+    {\small
+        [\@date] $\quad$ Protokoll zu [\@svpnum] $\quad$ Gruppe [\@svpgroup] 
+    }
+    {
+        \color{blau}\rule{1\textwidth}{0.3 mm}}\\
+        \end{center}\textbf{\textsf{\textit{\color{blau}\Large Protokoll zu}}} \\
+        \begin{center}\textsf{\textbf{\color{blau}\Huge 
+        %\@title
+        [\@svpnum -- \@svpname]
+    }}\\
+
+    {\color{blau}\rule{1\textwidth}{0.3 mm}}\\
+    %\@author
+    Gruppe [\@svpgroup]:\@author 
+
+    \end{center}
+    \hfill
+    
+    \tableofcontents
+    \hfill
+
+    \textbf{Praktikum f"ur Schulversuche (Physik)}\\
+    Teil \svppart\\
+    \svpsem\:  \svpyear
+    
+    \pagebreak
+
+
+}
+\makeatother
+
+\newenvironment{didbase}[2]
+    {    
+
+        \section*{Didaktische Basisinformationen zu allen Versuchen}
+        \addcontentsline{toc}{section}{Didaktische Basisinformationen zu allen Versuchen}
+     
+      
+        %\newcommand{\alltag}[1]{
+        %    \@startsection{subsection}{2}{}{}{}{}[]{
+        %    Alltagsbezug~-- Wozu brauche ich denn das?}
+        %}
+        
+        
+    }
+    \pagebreak
+    {
+    }
